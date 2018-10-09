@@ -8,7 +8,11 @@
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -23,7 +27,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              {
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+              },
+              "src/styles.scss"
             ],
             "scripts": []
           },
@@ -72,6 +79,9 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
+              {
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+              },
               "styles.css"
             ],
             "scripts": [],
@@ -110,6 +120,176 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "kdi-ui": {
+      "root": "projects/kdi-ui",
+      "sourceRoot": "projects/kdi-ui/src",
+      "projectType": "library",
+      "prefix": "kdi",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kdi-ui/tsconfig.lib.json",
+            "project": "projects/kdi-ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kdi-ui/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kdi-ui/src/test.ts",
+            "tsConfig": "projects/kdi-ui/tsconfig.spec.json",
+            "karmaConfig": "projects/kdi-ui/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kdi-ui/tsconfig.lib.json",
+              "projects/kdi-ui/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "kdi-core": {
+      "root": "projects/kdi-core",
+      "sourceRoot": "projects/kdi-core/src",
+      "projectType": "library",
+      "prefix": "kdi",
+      "schematics": {
+        "@schematics/angular:component": {
+          "styleext": "scss"
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kdi-core/tsconfig.lib.json",
+            "project": "projects/kdi-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kdi-core/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kdi-core/src/test.ts",
+            "tsConfig": "projects/kdi-core/tsconfig.spec.json",
+            "karmaConfig": "projects/kdi-core/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kdi-core/tsconfig.lib.json",
+              "projects/kdi-core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "kdi-material": {
+      "root": "projects/kdi-material",
+      "sourceRoot": "projects/kdi-material/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kdi-material/tsconfig.lib.json",
+            "project": "projects/kdi-material/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kdi-material/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kdi-material/src/test.ts",
+            "tsConfig": "projects/kdi-material/tsconfig.spec.json",
+            "karmaConfig": "projects/kdi-material/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kdi-material/tsconfig.lib.json",
+              "projects/kdi-material/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "kdi-auth": {
+      "root": "projects/kdi-auth",
+      "sourceRoot": "projects/kdi-auth/src",
+      "projectType": "library",
+      "prefix": "kdi",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kdi-auth/tsconfig.lib.json",
+            "project": "projects/kdi-auth/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/kdi-auth/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kdi-auth/src/test.ts",
+            "tsConfig": "projects/kdi-auth/tsconfig.spec.json",
+            "karmaConfig": "projects/kdi-auth/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kdi-auth/tsconfig.lib.json",
+              "projects/kdi-auth/tsconfig.spec.json"
+            ],
             "exclude": [
               "**/node_modules/**"
             ]

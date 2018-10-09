@@ -1,0 +1,66 @@
+$bc-line-height: 32px;
+$bc-margin: 5px;
+$bc-height: calc( #{$bc-line-height} + #{$bc-margin} + #{$bc-margin});
+div.breadcrump-wrapper {
+    display: float;
+    height: $bc-height;
+    & span.title {
+        float: right;
+        display: inline-block;
+        vertical-align: middle;
+        line-height: $bc-height;
+        margin-right: 30px;
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+    & ul.breadcrump {
+        float: left;
+        list-style: none;
+        overflow: hidden;
+        height: $bc-line-height;
+        margin-top: $bc-margin;
+        margin-bottom: $bc-margin;
+        & li {
+            float: left;
+            height: $bc-line-height;
+            & span {
+                display: inline-block;
+                vertical-align: middle;
+                line-height: $bc-line-height;
+                margin-right: 6px;
+                margin-left: 6px;
+                & mat-icon {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+            }
+        }
+        & li.next:hover {
+            cursor: pointer!important;
+            background: rgba(128, 128, 128, 0.26)!important;
+            border-radius: 2px!important;
+        }
+        & li:hover {
+            cursor: default;
+            background: transparent;
+            border-radius: 0px;
+        }
+        & li.next:after {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            /* Preferred icon size */
+            display: inline-block;
+            line-height: $bc-line-height;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            display: inline-block;
+            vertical-align: middle;
+            content: '\E315';
+        }
+    }
+}

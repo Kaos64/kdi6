@@ -1,0 +1,23 @@
+<div fxLayout="row">
+
+    <div flex="80"><canvas #canvasElement width="1280" height="1803"></canvas></div>
+    <div flex="15">
+
+        <div>
+            <h2> BoundsInit :" {{boundsInit}}</h2>
+        </div>
+
+        <div>"Zoom : " {{scope.view.zoom}}</div>
+        <div>"Project Size : " {{scope.view.size}}</div>
+        <div>"Project Bounds :" {{scope.view.bounds}} => {{scope.view.bounds.topRight}}</div>
+        <div>"Project Center :" {{scope.view.center}} => toProject{{scope.view.viewToProject(scope.view.center)}}</div>
+
+        <div>"View Size : " {{scope.view.viewSize}} </div>
+        <div>"ActiveLayer bounds : " {{project.activeLayer.bounds}}</div>
+        <div>"ActiveLayer bounds : " {{project.activeLayer.bounds}}</div>
+        <div><button (click)="plusX()">+x</button></div>
+        <div><button (click)="moinsX()">-x</button></div>
+        <div><button (click)="scope.view.zoom = 1.0">zoom 1</button></div>
+
+    </div>
+</div>

@@ -1,0 +1,36 @@
+/* You can add global styles to this file, and also import other style files */
+
+//$fa-font-path: "../node_modules/font-awesome/fonts";
+//@import "../node_modules/font-awesome/scss/font-awesome.scss";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~perfect-scrollbar/css/perfect-scrollbar.css';
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+div.debug {
+    border: 1px darkblue dashed;
+    & div {
+        border: 1px pink dashed;
+    }
+    & span {
+        border: 1px green dashed;
+    }
+    & canvas {
+        border: 1px blueviolet dashed;
+    }
+}
+
+div.form-field-fullwidth {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-block-end: 10px;
+    & mat-form-field {
+        width: 100%;
+    }
+}

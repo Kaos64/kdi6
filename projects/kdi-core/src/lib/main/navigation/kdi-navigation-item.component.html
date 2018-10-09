@@ -1,0 +1,10 @@
+<button mat-button class="item" [routerLink]="item.url" routerLinkActive="active" [class.nav]="item.type == 'item'" [class.separator]="item.type == 'separator'" [class.container]="item.type == 'container'" [disabled]="item.type == 'separator'">
+        <div class="content">
+                <span><mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon></span>
+                <span *ngIf="item.label">{{item.label}}</span>
+                <span class="spacer"></span>
+                <span *ngIf="item.badge1 && this.item.badge1.content"><div *ngIf="this.item.badge1.content.length" class="badge" [style.background-color]="item.badge1.color">{{item.badge1.content}}</div></span>
+                <span *ngIf="item.badge2 && this.item.badge2.content"><div *ngIf="this.item.badge2.content.length" class="badge" [style.background-color]="item.badge2.color">{{item.badge2.content}}</div></span>
+                <span><mat-icon *ngIf="item.type == 'container'" [@toggleState]="item.state" >keyboard_arrow_right</mat-icon></span>
+        </div>
+</button>

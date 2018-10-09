@@ -15,6 +15,23 @@
     "lib": [
       "es2017",
       "dom"
-    ]
+    ],
+    "paths": {
+      "core": [
+        "dist/core"
+      ],
+      "kdi-ui": [
+        "dist/kdi-ui"
+      ],
+      "kdi-core": [
+        "dist/kdi-core"
+      ],
+      "kdi-material": [
+        "dist/kdi-material"
+      ],
+      "kdi-auth": [
+        "dist/kdi-auth"
+      ]
+    }
   }
 }

@@ -1,0 +1,10 @@
+<div class="breadcrump-wrapper">
+    <ul class="breadcrump" *ngIf="breadcrumps.length">
+        <li *ngFor="let bc of breadcrumps; let i = index" [class.next]="i + 1 < breadcrumps.length " [routerLink]="resolveUrl(bc)">
+            <span *ngIf="bc.icon"><mat-icon *ngIf="bc.icon">{{bc.icon}}</mat-icon></span>
+            <span *ngIf="bc.label">{{bc.label}}</span>
+            <span *ngIf="bc.resolve">{{resolveData(bc)}}</span>
+        </li>
+    </ul>
+    <span class="title">{{title}} </span>
+</div>

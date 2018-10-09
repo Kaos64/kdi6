@@ -1,0 +1,60 @@
+$kdi-toolbar-height: 64px;
+$kdi-footbar-height: 40px;
+div.kdi {
+    overflow: hidden;
+    min-height: 100vh;
+    & mat-toolbar {
+        & span.spacer {
+            flex: 1 1 auto;
+        }
+    }
+    & mat-sidenav-container {
+        overflow: hidden;
+        height: calc(100vh - #{$kdi-toolbar-height});
+        & mat-sidenav {
+            width: 200px;
+        }
+    }
+    & div.kdi-content {
+        overflow: auto;
+        height: calc(100% - #{$kdi-footbar-height});
+        min-height: calc(100% - #{$kdi-footbar-height});
+        max-height: calc(100% - #{$kdi-footbar-height});
+    }
+    & div.kdi-footer {
+        position: absolute;
+        width: 100%;
+        right: 0;
+        bottom: 0;
+        & mat-toolbar {
+            height: $kdi-footbar-height!important;
+        }
+    }
+    & div.kdi-scrolltop {
+        position: fixed;
+        opacity: 0.8;
+        bottom: calc(10px + #{$kdi-footbar-height});
+        right: 20px;
+    }
+}
+
+div.no-footer {
+    & div.kdi-content {
+        height: 100%!important;
+        min-height: 100%!important;
+        max-height: 100%!important;
+    }
+    & div.kdi-scrolltop {
+        bottom: 10px;
+    }
+}
+
+div.no-toolbar {
+    & mat-sidenav-container {
+        height: 100vh!important;
+    }
+}
+
+div.loremd {
+    font-size: 50px;
+}

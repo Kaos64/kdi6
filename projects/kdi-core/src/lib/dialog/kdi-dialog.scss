@@ -1,0 +1,25 @@
+div.header {
+    position: relative;
+    height: 24px;
+    & mat-toolbar {
+        position: absolute;
+        top: -24px;
+        left: -24px;
+        width: calc(100% + 48px);
+        height: 40px;
+        & span.spacer {
+            flex: 1 1 auto;
+        }
+    }
+}
+
+mat-dialog-content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.actions {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: right;
+}

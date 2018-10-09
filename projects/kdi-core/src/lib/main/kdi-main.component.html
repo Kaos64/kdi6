@@ -1,0 +1,45 @@
+<div class="kdi" [class.no-footer]="!setting.main.bShowFooter" [class.no-toolbar]="!setting.main.bShowToolbar">
+    <mat-toolbar *ngIf="setting.main.bShowToolbar" color="primary">
+        <span *ngIf="kdiSnApp.mode == 'over' && setting.main.bShowAppSidenav"><button mat-icon-button (click)="snApp.toggle()"><mat-icon class="mat-24">dehaze</mat-icon></button></span>
+        <span>{{setting.app_name}}</span>
+        <ng-content select="[kdi-toolbar]"></ng-content>
+        <span class="spacer"></span>
+
+        <button *ngIf="setting.main.bShowSummarySidenav" mat-icon-button (click)="snSummary.toggle()">
+            <mat-icon class="mat-24">list</mat-icon>
+        </button>
+    </mat-toolbar>
+    <mat-sidenav-container>
+        <mat-sidenav #snApp position="start">
+            <perfect-scrollbar class="debug" #ps2>
+                <kdi-navigation></kdi-navigation>
+                <ng-content select="[kdi-app-sn]"></ng-content>
+            </perfect-scrollbar>
+        </mat-sidenav>
+        <mat-sidenav #snSummary position="end">
+            <ng-content select="[kdi-summary-sn]"></ng-content>
+        </mat-sidenav>
+        <!--
+      FAB should be placed with absolute positioning in the container via css
+      -->
+        <!-- Body -->
+        <kdi-loading-bar></kdi-loading-bar>
+        <div class="kdi-content">
+            <perfect-scrollbar #ps (psScrollDown)="scroll($event)" (psScrollUp)="scroll($event)">
+                <ng-content select="[kdi-content]"></ng-content>
+            </perfect-scrollbar>
+        </div>
+        <div class="kdi-footer" *ngIf="setting.main.bShowFooter">
+            <mat-toolbar color="accent">
+                <span>Title</span>
+                <span class="spacer"></span>
+                <span>Left</span>
+            </mat-toolbar>
+        </div>
+        <div class="kdi-scrolltop" *ngIf="kdiShowScrollTop">
+            <button mat-fab (click)="scrollToTop()" color="">
+                <mat-icon class="">keyboard_arrow_up</mat-icon>
+            </button>
+        </div>
+    </mat-sidenav-container>
+</div>

@@ -1,0 +1,15 @@
+<ul class="kdi-navigation">
+    <li *ngFor="let nav of navs ; let i = index" [ngSwitch]="nav.type">
+        <kdi-navigation-item *ngSwitchCase="'separator'" [item]="nav"></kdi-navigation-item>
+
+        <div *ngSwitchCase="'container'" class="container">
+            <kdi-navigation-item (click)="toggleState(i)" [item]="nav"></kdi-navigation-item>
+            <ul [@bodyExpansion]="_getContainerState(i)">
+                <li *ngFor="let child of nav.children">
+                    <kdi-navigation-item [item]="child"></kdi-navigation-item>
+                </li>
+            </ul>
+        </div>
+        <kdi-navigation-item *ngSwitchDefault [item]="nav"></kdi-navigation-item>
+    </li>
+</ul>

@@ -1,0 +1,27 @@
+<kdi-auth title="Reset your password">
+    <form [formGroup]="f" auth-body>
+        <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="">
+            <div fxFlex="100" class="form-field-fullwidth">
+                <mat-form-field>
+                    <input matInput [(ngModel)]="data.email" formControlName="email" placeholder="Email" value="" required>
+                </mat-form-field>
+            </div>
+            <div fxFlex="100" class="form-field-fullwidth">
+                <mat-form-field>
+                    <input matInput [(ngModel)]="data.password" formControlName="password" type="password" placeholder="Password" value="" required>
+                </mat-form-field>
+            </div>
+            <div fxFlex="100" class="form-field-fullwidth">
+                <mat-form-field>
+                    <input matInput [(ngModel)]="data.confirm" formControlName="confirm" type="password" placeholder="Confirm password" value="" required>
+                </mat-form-field>
+            </div>
+            <div fxFlex="100" class="form-field-fullwidth">
+                <button mat-button (click)="submit()" [disabled]="f.invalid" style="width: 100%">RESET PASSWORD</button>
+            </div>
+        </div>
+    </form>
+    <div class="footer" auth-footer>
+        <div><a routerLink="../login">Go to login</a></div>
+    </div>
+</kdi-auth>

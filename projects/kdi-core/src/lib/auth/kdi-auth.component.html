@@ -1,0 +1,29 @@
+<kdi-main kdi-setting [kdiMainSetting]="mainSetting">
+    <div class="auth " fxLayout="row " fxLayout.xs="column wrap" fxLayoutAlign.xs="start start" fxLayoutGap.xs="" kdi-content>
+        <div fxFlex="70" class="auth-splash-screen" fxFlex.lt-md="50" fxHide.xs>
+            <div fxLayout="column " class="auth-abstract" fxLayoutAlign="space-around start" fxLayoutGap="20px" fxLayout.xs="row wrap" fxLayoutAlign.xs="start start" fxLayoutGap.xs="0px" [ngClass.gt-xs]="'margin-gt-xs'">
+                <div fxFlex="40" class="auth-appname" fxFlex.xs="100">
+                    <span>My App name</span>
+                </div>
+                <div fxFlex fxHide.xs class="auth-describe">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, debitis minus id cupiditate ducimus necessitatibus, quod blanditiis iste dignissimos eaque inventore, enim quibusdam libero doloribus. Minus laudantium dolor eius distinctio?
+                </div>
+            </div>
+        </div>
+
+        <perfect-scrollbar class=" auth-content mat-elevation-z14" [config]="{}" fxFlex>
+            <div fxLayout="column" fxLayoutAlign="space-around center" class="wrapper">
+
+                <div class="auth-logo" fxFlex fxHide fxShow.xs></div>
+                <div class="auth-title" fxFlex><span>{{title}}</span></div>
+                <div class="auth-body" fxFlex>
+                    <ng-content select="[auth-body]"></ng-content>
+                </div>
+                <div class="auth-footer" fxFlex>
+                    <ng-content select="[auth-footer]"></ng-content>
+                </div>
+            </div>
+        </perfect-scrollbar>
+    </div>
+
+</kdi-main>

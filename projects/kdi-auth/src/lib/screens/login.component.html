@@ -1,0 +1,32 @@
+<kdi-auth title="Login to your account">
+    <form [formGroup]="f" auth-body>
+        <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="">
+            <div fxFlex="100" class="form-field-fullwidth">
+                <mat-form-field>
+                    <input matInput [(ngModel)]="data.username" formControlName="username" placeholder="Username or email" value="" required>
+                </mat-form-field>
+            </div>
+            <div fxFlex="100" class="form-field-fullwidth">
+                <mat-form-field>
+                    <input matInput [(ngModel)]="data.password" formControlName="password" type="password" placeholder="Mot de passe" value="" required>
+                </mat-form-field>
+            </div>
+            <div fxFlex="100" class="form-field-fullwidth">
+                <div fxLayout="row wrap">
+                    <div fxFlex="60">
+                        <mat-checkbox [(ngModel)]="data.remember" formControlName="remember">Remember me.</mat-checkbox>
+
+                    </div>
+                    <div fxFlex="40" class="ta-right"><a routerLink="../forgot-password">Forgot password ?</a></div>
+                </div>
+            </div>
+            <div fxFlex="100" class="form-field-fullwidth">
+                <button mat-button (click)="submit()" [disabled]="f.invalid" style="width: 100%">LOGGIN</button>
+            </div>
+        </div>
+    </form>
+    <div class="footer" auth-footer>
+        <div>Don't have an account ?</div>
+        <div><a routerLink="../register">Create an account</a></div>
+    </div>
+</kdi-auth>
